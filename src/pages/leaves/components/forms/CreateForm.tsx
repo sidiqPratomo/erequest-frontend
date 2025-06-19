@@ -4,8 +4,10 @@ import { CreateModel } from "../../core/_models";
 import {
   DatePicker,
   MultiUploadWithList,
-  TranslatedInputText,
+  SingleSelect,
 } from "../../../../components";
+import { SelectOption } from "../../../../base_models";
+import { useAllEmployees } from "../../query/useAllEmployees";
 
 interface Props {
   collection: string;
@@ -17,6 +19,8 @@ export const CreateForm: FC<Props> = ({ collection, readOnly = false }) => {
     formState: { errors },
     control,
   } = useFormContext<CreateModel>();
+
+  const { data: dataUser } = useAllEmployees();
 
   return (
     <>
@@ -30,17 +34,22 @@ export const CreateForm: FC<Props> = ({ collection, readOnly = false }) => {
           },
         }}
         render={({ field: { onChange, value } }) => (
-          <TranslatedInputText
-            collection={collection}
-            errorMessage={errors.employee_id}
-            fieldName="employee_id"
-            name="employee_id"
+          <SingleSelect
+            label="user"
+            options={
+              dataUser?.map((user) => ({
+                label: user.user.first_name,
+                value: user.id as unknown as string,
+              })) ?? []
+            }
             isRequired={true}
             value={value}
-            onChange={(value: string) => {
-              onChange(value);
+            changeHandler={(val: SelectOption | null) => {
+              if (val) {
+                onChange(val.value);
+              }
             }}
-            placeholder="Enter your name"
+            errorsMessage={errors.employee_id}
           />
         )}
       />
