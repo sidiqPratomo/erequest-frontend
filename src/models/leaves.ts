@@ -1,36 +1,47 @@
 import { ID } from "../_metronic/helpers";
-import { UserModel } from "../pages/auth";
 
 export interface Leaves {
   id: ID;
-  user_id: ID;
-  departments: string;
-  position: string;
-  user: UserModel;
+  user_id: string;
+  employee_id: string;
+  files: string;
+  leave_date: string;
+  return_date: string;
+  leave_status: string;
 }
 
 export interface LeavesCreate {
-  user_id: ID;
-  departments: string;
-  position: string;
+  // user_id: string;
+  employee_id: string;
+  files: string;
+  leave_date: string;
+  return_date: string;
+  leave_status: string;
 }
 
 export interface LeavesUpdate {
-  user_id: ID;
-  departments: string;
-  position: string;
+  employee_id: string;
+  files: string;
+  leave_date: string;
+  return_date: string;
+  leave_status: string;
 }
 
 export interface LeavesRead {
   id: ID;
-  user_id: ID;
-  departments: string;
-  position: string;
-  user: UserModel;
+  user_id: string;
+  employee_id: string;
+  files: string;
+  leave_date: string;
+  return_date: string;
+  leave_status: string;
 }
 
 export const InitialValue: LeavesCreate = {
-  user_id: undefined,
-  departments: "",
-  position: "",
+  // user_id: "",
+  employee_id: "",
+  files: "",
+  leave_date: "",
+  return_date: "",
+  leave_status: "",
 };

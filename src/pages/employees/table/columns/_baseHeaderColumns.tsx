@@ -25,7 +25,7 @@ const baseHeaderColumns: ReadonlyArray<Column<any>> = [
     id: 'name',
     Cell: ({ ...props }) => {
       const entry = props.data[props.row.index];
-      return <ColumnString value={entry['user'].name} />;
+      return <ColumnString value={entry['user'].first_name} />;
     },
   },
   {

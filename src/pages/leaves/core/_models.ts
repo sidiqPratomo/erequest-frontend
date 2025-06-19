@@ -1,27 +1,14 @@
-import { ExampleModel } from "../../../models/example";
+import { InitialValue, Leaves, LeavesCreate, LeavesRead, LeavesUpdate } from "../../../models/leaves";
 
-export type CreateModel = ExampleModel;
-export type ReadModel = ExampleModel;
-export type UpdateModel = ExampleModel;
-export type DeleteModel = ExampleModel;
-export type ListModel = ExampleModel;
+export type CreateModel = LeavesCreate;
+export type ReadModel = LeavesRead;
+export type UpdateModel = LeavesUpdate;
+export type ListModel = Leaves;
 
-export const initialExampleModel: ExampleModel = {
-  nik: "",
-  name: "",
-  hobbies: [],
-  citizen: "",
-  phone: "",
-  age: 0,
-  taxpayer_number: "",
-  dob: "",
-  married_status: false,
-  profile_picture: undefined,
-  supporting_document: [],
-};
+export const initialLeavesModel: CreateModel = InitialValue;
 
-export const Collection = "examples";
+export const Collection = "leaves";
 
-export const initialValueAddModel = { ...initialExampleModel };
-export const initialValueReadModel = { ...initialExampleModel };
-export const initialValueUpdateModel = { ...initialExampleModel };
+export const initialValueAddModel = { ...initialLeavesModel };
+export const initialValueReadModel = { ...initialLeavesModel };
+export const initialValueUpdateModel = { ...initialLeavesModel };
